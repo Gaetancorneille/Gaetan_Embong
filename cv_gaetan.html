@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html lang="fr" id="main-html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaetan Embong - CV</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #64b5f6;
+            --accent-light: #bbdefb;
+            --accent-purple: #9fa8da;
+            --bg-dark: #f5f7fa;
+            --bg-card: rgba(255, 255, 255, 0.95);
+            --text-light: #2c3e50;
+            --text-secondary: #546e7a;
+            --glow-color: rgba(74, 144, 226, 0.3);
+            --soft-blue: linear-gradient(135deg, #4a90e2 0%, #64b5f6 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 50%, #f5f7fa 100%);
+            color: var(--text-light);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: linear-gradient(45deg, #e3f2fd, #ffffff, #bbdefb, #ffffff, #e3f2fd);
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Particle */
+        .particle {
+            position: fixed;
+            width: 3px;
+            height: 3px;
+            background: radial-gradient(circle, var(--primary-color), transparent);
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(74, 144, 226, 0.6);
+            animation: float 25s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* Neon Grid Lines */
+        .grid-lines {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(74, 144, 226, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(74, 144, 226, 0.05) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: -1;
+            animation: gridMove 25s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: perspective(500px) rotateX(60deg) translateY(0); }
+            100% { transform: perspective(500px) rotateX(60deg) translateY(50px); }
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-img-container {
+            width: 250px;
+            height: 250px;
+            margin: 0 auto 30px;
+            position: relative;
+            animation: float-img 3s ease-in-out infinite;
+        }
+
+        @keyframes float-img {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        var(--soft-blue) border-box;
+            box-shadow: 
+                0 0 40px rgba(74, 144, 226, 0.4),
+                0 0 80px rgba(100, 181, 246, 0.3),
+                inset 0 0 30px rgba(74, 144, 226, 0.1);
+            animation: pulse-border 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-border {
+            0%, 100% {
+                box-shadow: 
+                    0 0 40px rgba(74, 144, 226, 0.4),
+                    0 0 80px rgba(100, 181, 246, 0.3),
+                    inset 0 0 30px rgba(74, 144, 226, 0.1);
+            }
+            50% {
+                box-shadow: 
+                    0 0 60px rgba(74, 144, 226, 0.6),
+                    0 0 120px rgba(100, 181, 246, 0.4),
+                    inset 0 0 40px rgba(74, 144, 226, 0.2);
+            }
+        }
+
+        .hexagon-border {
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            top: -15px;
+            left: -15px;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hexagon-border::before,
+        .hexagon-border::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            animation: pulse-hex 4s ease-in-out infinite;
+        }
+
+        .hexagon-border::after {
+            animation-delay: 2s;
+            border-color: var(--secondary-color);
+        }
+
+        @keyframes pulse-hex {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+        }
+
+        .glitch-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            background: var(--soft-blue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            position: relative;
+            filter: drop-shadow(0 0 20px rgba(74, 144, 226, 0.4));
+        }
+
+        @keyframes glitch {
+            0%, 90%, 100% {
+                transform: translate(0);
+            }
+            92% {
+                transform: translate(-2px, 2px);
+            }
+            94% {
+                transform: translate(2px, -2px);
+            }
+            96% {
+                transform: translate(-2px, -2px);
+            }
+            98% {
+                transform: translate(2px, 2px);
+            }
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-purple), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 20px 0;
+            animation: neon-flicker 4s infinite alternate;
+        }
+
+        @keyframes neon-flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                filter: drop-shadow(0 0 15px rgba(74, 144, 226, 0.6))
+                        drop-shadow(0 0 30px rgba(100, 181, 246, 0.4));
+            }
+            20%, 24%, 55% {
+                filter: drop-shadow(0 0 5px rgba(74, 144, 226, 0.3));
+            }
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 30px auto;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .contact-icons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border: 2px solid var(--primary-color);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            background: rgba(74, 144, 226, 0.05);
+        }
+
+        .contact-icon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--soft-blue);
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+            z-index: -1;
+        }
+
+        .contact-icon:hover::before {
+            transform: translateY(0);
+        }
+
+        .contact-icon:hover {
+            color: white;
+            transform: translateY(-8px) scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 40px rgba(74, 144, 226, 0.4);
+            border-color: var(--secondary-color);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+            animation: line-grow 2s ease-in-out infinite;
+        }
+
+        @keyframes line-grow {
+            0%, 100% { width: 100px; }
+            50% { width: 200px; }
+        }
+
+        /* Card Styles */
+        .futuristic-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(74, 144, 226, 0.25);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(74, 144, 226, 0.1);
+        }
+
+        .futuristic-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(74, 144, 226, 0.1),
+                transparent
+            );
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+        }
+
+        .futuristic-card:hover::before {
+            left: 100%;
+        }
+
+        .futuristic-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+            box-shadow: 
+                0 15px 50px rgba(74, 144, 226, 0.25),
+                0 0 30px rgba(100, 181, 246, 0.15);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: inline-block;
+            animation: icon-bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes icon-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .card-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .card-subtitle {
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .card-date {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .card-content {
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .card-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card-content ul li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .card-content ul li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-item {
+            background: var(--bg-card);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover::after {
+            transform: scaleX(1);
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.2);
+        }
+
+        .skill-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 0;
+            list-style: none;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, 
+                transparent,
+                var(--primary-color),
+                var(--secondary-color),
+                transparent
+            );
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: var(--bg-card);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            position: relative;
+            backdrop-filter: blur(10px);
+            animation: fadeInTimeline 0.6s ease;
+        }
+
+        @keyframes fadeInTimeline {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 50%;
+            top: 30px;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border: 4px solid var(--bg-dark);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--glow-color);
+            animation: pulse-marker 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-marker {
+            0%, 100% {
+                box-shadow: 0 0 20px var(--glow-color);
+            }
+            50% {
+                box-shadow: 0 0 40px var(--primary-color);
+            }
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(74, 144, 226, 0.3);
+            border-radius: 20px;
+            padding: 0;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(74, 144, 226, 0.1);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(74, 144, 226, 0.15), transparent);
+            transition: left 0.6s ease;
+            z-index: 1;
+        }
+
+        .project-card:hover::before {
+            left: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 60px rgba(74, 144, 226, 0.3);
+        }
+
+        .project-preview {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 20px 20px 0 0;
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover .project-preview {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            display: inline-block;
+            animation: icon-float 3s ease-in-out infinite;
+        }
+
+        @keyframes icon-float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
+
+        .project-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .project-badge {
+            display: inline-block;
+            background: var(--soft-blue);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        /* Languages */
+        .language-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background: var(--bg-card);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .language-item:hover {
+            border-color: var(--primary-color);
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(0, 240, 255, 0.2);
+        }
+
+        .language-name {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.2rem;
+        }
+
+        .language-flag {
+            font-size: 2rem;
+        }
+
+        .language-level {
+            color: var(--primary-color);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--soft-blue);
+            border: 2px solid transparent;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 10px 30px rgba(74, 144, 226, 0.3);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(74, 144, 226, 0.5);
+            border-color: var(--secondary-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .glitch-text {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-content {
+                width: calc(100% - 80px);
+                margin-left: 80px !important;
+            }
+
+            .timeline-marker {
+                left: 30px;
+            }
+
+            .profile-img-container {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Fixed Control Bar */
+        .control-bar {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+        }
+
+        .control-btn {
+            background: var(--bg-card);
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.2);
+            white-space: nowrap;
+        }
+
+        .control-btn:hover {
+            background: var(--soft-blue);
+            color: white;
+            transform: translateX(-5px);
+            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.4);
+        }
+
+        .control-btn i {
+            margin-right: 8px;
+        }
+
+        /* Contact Form Styles */
+        .contact-form {
+            background: var(--bg-card);
+            border: 1px solid rgba(74, 144, 226, 0.25);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(74, 144, 226, 0.1);
+        }
+
+        .form-control, .form-select, textarea {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(74, 144, 226, 0.3);
+            color: var(--text-light);
+            padding: 12px 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus, .form-select:focus, textarea:focus {
+            background: rgba(255, 255, 255, 1);
+            border-color: var(--primary-color);
+            color: var(--text-light);
+            box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
+        }
+
+        .form-label {
+            color: var(--primary-color);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .submit-btn {
+            background: var(--soft-blue);
+            border: none;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(74, 144, 226, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .control-bar {
+                top: 10px;
+                right: 10px;
+                gap: 5px;
+            }
+
+            .control-btn {
+                padding: 8px 12px;
+                font-size: 0.75rem;
+            }
+
+            .control-btn i {
+                margin-right: 5px;
+            }
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+    <div class="grid-lines"></div>
+
+    <!-- Fixed Control Bar -->
+    <div class="control-bar">
+        <button class="control-btn" onclick="toggleLanguage()">
+            <i class="fas fa-language"></i>
+            <span id="lang-btn-text">English</span>
+        </button>
+        <a href="generate_pdf_fr.html" class="control-btn" target="_blank">
+            <i class="fas fa-file-pdf"></i>
+            <span>PDF FR</span>
+        </a>
+        <a href="generate_pdf_en.html" class="control-btn" target="_blank">
+            <i class="fas fa-file-pdf"></i>
+            <span>PDF EN</span>
+        </a>
+    </div>
+
+    <!-- Particles -->
+    <script>
+        for(let i = 0; i < 50; i++) {
+            let particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 20 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            document.body.appendChild(particle);
+        }
+    </script>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="profile-img-container">
+                <div class="hexagon-border"></div>
+                <img src="IMG-20250611-WA0019.jpg" alt="Gaetan Embong" class="profile-img">
+            </div>
+            <h1 class="glitch-text">Gaetan Embong</h1>
+            <p class="subtitle">🎓 Étudiant en ingénierie informatique</p>
+            <p class="subtitle">💻 Analyste programmeur | Développement web, systèmes & IA</p>
+            <p class="hero-description">
+                🚀 Intégration des technologies numériques dans les organisations<br>
+                Étudiant en dernière année d'ingénierie informatique, spécialisé en analyse et programmation, 
+                avec une expérience concrète en développement web, systèmes informatiques et intégration de 
+                l'intelligence artificielle dans des environnements académiques et administratifs.
+            </p>
+            <div style="margin-bottom: 20px;">
+                <p style="font-size: 1.1rem; margin: 0;">
+                    <i class="fas fa-map-marker-alt" style="color: var(--primary-color); margin-right: 8px;"></i>
+                    <span data-fr="Yaoundé, Cameroun" data-en="Yaoundé, Cameroon">Yaoundé, Cameroun</span>
+                </p>
+            </div>
+            <div class="contact-icons">
+                <a href="mailto:gaetanembong681@gmail.com" class="contact-icon" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://wa.me/237695732332" class="contact-icon" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://github.com/gaetan" class="contact-icon" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/gaetan" class="contact-icon" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+            <div style="margin-top: 40px;">
+                <a href="#about" class="cta-button">Explorer mon profil</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title reveal" data-fr="👤 À propos de moi" data-en="👤 About Me">👤 À propos de moi</h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="futuristic-card reveal">
+                        <div class="card-icon">🎯</div>
+                        <div class="card-content">
+                            <p>Je suis étudiant en troisième et dernière année de licence d'ingénieur en informatique, option analyste programmeur, à l'Université Saint Jean Paul II de Yaoundé, sous la tutelle de l'ENSP de Maroua.</p>
+                            <p>Mon parcours m'a permis de travailler sur des projets web avancés, des plateformes de gestion, des systèmes réseau, ainsi que sur l'intégration de l'intelligence artificielle dans des contextes réels, notamment au sein de l'administration publique.</p>
+                            <h4 style="color: var(--primary-color); margin-top: 20px;">Je m'intéresse particulièrement à :</h4>
+                            <ul>
+                                <li>L'analyse et la conception des systèmes</li>
+                                <li>Le développement de plateformes numériques</li>
+                                <li>Les systèmes informatiques</li>
+                                <li>L'intelligence artificielle appliquée aux organisations</li>
+                            </ul>
+                            <h4 style="color: var(--primary-color); margin-top: 20px;">Qualités clés :</h4>
+                            <ul>
+                                <li>Esprit analytique et logique</li>
+                                <li>Autonomie et sens de l'initiative</li>
+                                <li>Bonne capacité d'adaptation</li>
+                                <li>Sérieux et implication dans les projets</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section" style="background: rgba(0, 240, 255, 0.02);">
+        <div class="container">
+            <h2 class="section-title reveal" data-fr="🎓 Formation" data-en="🎓 Education">🎓 Formation</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="futuristic-card reveal">
+                        <div class="card-icon">🎓</div>
+                        <div class="card-title">Licence d'Ingénieur en Informatique</div>
+                        <div class="card-subtitle">Option : Analyste Programmeur</div>
+                        <div class="card-date">📍 Université Saint Jean Paul II de Yaoundé</div>
+                        <div class="card-date">🏛 Sous la tutelle de l'École Nationale Supérieure Polytechnique de Maroua</div>
+                        <div class="card-date">📅 Septembre 2023 – en cours (3ᵉ année)</div>
+                        <div class="card-content">
+                            <h5 style="color: var(--primary-color);">Principaux domaines :</h5>
+                            <ul>
+                                <li>Programmation et algorithmique</li>
+                                <li>Développement web et applicatif</li>
+                                <li>Bases de données</li>
+                                <li>Réseaux et systèmes informatiques</li>
+                                <li>Analyse et conception des systèmes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="futuristic-card reveal">
+                        <div class="card-icon">📚</div>
+                        <div class="card-title">Baccalauréat Série D</div>
+                        <div class="card-date">📅 Juillet 2023</div>
+                        <div class="card-content">
+                            <h5 style="color: var(--primary-color);">Spécialités :</h5>
+                            <ul>
+                                <li>Sciences de la Vie et de la Terre</li>
+                                <li>Éducation à l'environnement, hygiène et biotechnologie</li>
+                                <li>Mathématiques</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title reveal" data-fr="💼 Expériences & Stages" data-en="💼 Experience & Internships">💼 Expériences & Stages</h2>
+            <ul class="timeline">
+                <li class="timeline-item reveal">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="card-icon">🏢</div>
+                        <div class="card-title">Stage académique – Helios High-Tech Academy</div>
+                        <div class="card-date">📅 Juillet – Août 2024</div>
+                        <div class="card-content">
+                            <ul>
+                                <li>Développement d'une plateforme de séries TV (backend + frontend)</li>
+                                <li>Intégration de fonctionnalités dynamiques et de streaming</li>
+                                <li>Gestion de base de données</li>
+                                <li>Participation à un projet de mise en réseau des systèmes des salles de cours</li>
+                                <li>Renforcement des compétences en réseaux et infrastructure informatique</li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-item reveal">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="card-icon">🏛</div>
+                        <div class="card-title">Stage académique – MINEPAT</div>
+                        <div class="card-subtitle">Ministère de l'Économie, de la Planification et de l'Aménagement du Territoire</div>
+                        <div class="card-date">📅 Juillet – Août 2025</div>
+                        <div class="card-content">
+                            <ul>
+                                <li>Classification et organisation des documents administratifs</li>
+                                <li>Participation à l'élaboration d'une plateforme de gestion des documents et des courriers</li>
+                                <li>Contribution à l'analyse fonctionnelle du système</li>
+                                <li>Travail en environnement administratif institutionnel</li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Certification Section -->
+    <section class="section" style="background: rgba(255, 0, 234, 0.02);">
+        <div class="container">
+            <h2 class="section-title reveal" data-fr="🎓 Certifications & Séminaires" data-en="🎓 Certifications & Seminars">🎓 Certifications & Séminaires</h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="futuristic-card reveal">
+                        <div class="card-icon">🤖</div>
+                        <div class="card-title">Séminaire sur l'Intelligence Artificielle dans l'Administration Publique</div>
+                        <div class="card-subtitle">Organisé par : Chaire UNESCO d'Afrique</div>
+                        <div class="card-date">📍 Lieu : MINEPAT – Yaoundé</div>
+                        <div class="card-date">📅 Période : Juillet – Août 2025</div>
+                        <div class="card-content">
+                            <h5 style="color: var(--primary-color);">Thèmes abordés :</h5>
+                            <ul>
+                                <li>Intégration de l'intelligence artificielle dans les administrations publiques</li>
+                                <li>Modernisation et digitalisation des services publics</li>
+                                <li>Enjeux éthiques et organisationnels de l'IA</li>
+                                <li>Apport de l'IA à la gestion documentaire et décisionnelle</li>
+                            </ul>
+                            <div style="margin-top: 20px; padding: 15px; background: rgba(0, 240, 255, 0.1); border-left: 4px solid var(--primary-color); border-radius: 5px;">
+                                <strong style="color: var(--secondary-color);">🏅 Certification obtenue :</strong><br>
+                                <span style="color: var(--primary-color); font-family: 'Orbitron', sans-serif; font-size: 1.1rem;">Certificat d'Expert en Intelligence Artificielle – Type A</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title reveal" data-fr="🛠️ Compétences techniques" data-en="🛠️ Technical Skills">🛠️ Compétences techniques</h2>
+            
+            <h3 style="color: var(--primary-color); font-family: 'Orbitron', sans-serif; text-align: center; margin-bottom: 30px;" class="reveal">
+                🔹 Langages de programmation
+            </h3>
+            <div class="skills-grid reveal">
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fab fa-html5"></i></div>
+                    <div class="skill-name">HTML5 / CSS3</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fab fa-js"></i></div>
+                    <div class="skill-name">JavaScript</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fab fa-php"></i></div>
+                    <div class="skill-name">PHP</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fab fa-python"></i></div>
+                    <div class="skill-name">Python</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-code"></i></div>
+                    <div class="skill-name">C++</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fab fa-java"></i></div>
+                    <div class="skill-name">Java</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-database"></i></div>
+                    <div class="skill-name">SQL</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-code"></i></div>
+                    <div class="skill-name">VB.NET</div>
+                </div>
+            </div>
+
+            <h3 style="color: var(--primary-color); font-family: 'Orbitron', sans-serif; text-align: center; margin: 60px 0 30px;" class="reveal">
+                🔹 Frameworks & Technologies
+            </h3>
+            <div class="skills-grid reveal">
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fab fa-bootstrap"></i></div>
+                    <div class="skill-name">Bootstrap</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fab fa-node-js"></i></div>
+                    <div class="skill-name">Node.js</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fab fa-laravel"></i></div>
+                    <div class="skill-name">Laravel</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-server"></i></div>
+                    <div class="skill-name">Express.js</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-database"></i></div>
+                    <div class="skill-name">MySQL</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-server"></i></div>
+                    <div class="skill-name">XAMPP</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
+                    <div class="skill-name">Git & GitHub</div>
+                </div>
+            </div>
+
+            <h3 style="color: var(--primary-color); font-family: 'Orbitron', sans-serif; text-align: center; margin: 60px 0 30px;" class="reveal">
+                🔹 Design & Outils créatifs
+            </h3>
+            <div class="skills-grid reveal">
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-pencil-ruler"></i></div>
+                    <div class="skill-name">Figma</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-palette"></i></div>
+                    <div class="skill-name">Canva</div>
+                </div>
+            </div>
+
+            <h3 style="color: var(--primary-color); font-family: 'Orbitron', sans-serif; text-align: center; margin: 60px 0 30px;" class="reveal">
+                🔹 Autres compétences
+            </h3>
+            <div class="row reveal">
+                <div class="col-md-12">
+                    <div class="futuristic-card">
+                        <div class="card-content">
+                            <ul style="column-count: 2; column-gap: 40px;">
+                                <li>Conception et modélisation de bases de données</li>
+                                <li>Développement CRUD</li>
+                                <li>Gestion des utilisateurs et rôles</li>
+                                <li>Applications desktop</li>
+                                <li>Réseaux informatiques</li>
+                                <li>Développement d'IA personnelle (local)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" style="background: rgba(201, 162, 39, 0.02);">
+        <div class="container">
+            <h2 class="section-title reveal" data-fr="📂 Projets réalisés" data-en="📂 Completed Projects">📂 Projets réalisés</h2>
+            <div class="projects-grid">
+                <div class="project-card reveal">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=400&fit=crop" alt="Plateforme d'investissement" class="project-preview">
+                    <div class="project-content">
+                        <div class="project-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="project-title">Plateforme d'investissement</div>
+                        <div style="margin-bottom: 15px;">
+                            <span class="project-badge">PHP</span>
+                            <span class="project-badge">MySQL</span>
+                            <span class="project-badge">Bootstrap</span>
+                        </div>
+                        <div class="card-content">
+                            <ul>
+                                <li>Système complet de gestion d'investissements</li>
+                                <li>Interface admin et utilisateur</li>
+                                <li>Intégration paiement sécurisé</li>
+                                <li>Tableau de bord avec statistiques en temps réel</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card reveal">
+                    <img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=600&h=400&fit=crop" alt="Site de vote Miss & Master" class="project-preview">
+                    <div class="project-content">
+                        <div class="project-icon"><i class="fas fa-vote-yea"></i></div>
+                        <div class="project-title">Site de vote Miss & Master</div>
+                        <div style="margin-bottom: 15px;">
+                            <span class="project-badge">PHP</span>
+                            <span class="project-badge">MySQL</span>
+                            <span class="project-badge">Responsive</span>
+                        </div>
+                        <div class="card-content">
+                            <ul>
+                                <li>Plateforme de vote en ligne sécurisée</li>
+                                <li>Gestion des candidats avec photos</li>
+                                <li>Système de paiement intégré (Mobile Money)</li>
+                                <li>Interface admin pour suivi en temps réel</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card reveal">
+                    <img src="https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=600&h=400&fit=crop" alt="Plateforme de séries TV" class="project-preview">
+                    <div class="project-content">
+                        <div class="project-icon"><i class="fas fa-tv"></i></div>
+                        <div class="project-title">Plateforme de séries TV</div>
+                        <div style="margin-bottom: 15px;">
+                            <span class="project-badge">PHP</span>
+                            <span class="project-badge">JavaScript</span>
+                            <span class="project-badge">Streaming</span>
+                        </div>
+                        <div class="card-content">
+                            <ul>
+                                <li>Plateforme complète de streaming</li>
+                                <li>Gestion des séries, saisons et épisodes</li>
+                                <li>Lecteur vidéo intégré</li>
+                                <li>Interface moderne et responsive</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card reveal">
+                    <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=600&h=400&fit=crop" alt="Plateforme gestion documentaire" class="project-preview">
+                    <div class="project-content">
+                        <div class="project-icon"><i class="fas fa-file-alt"></i></div>
+                        <div class="project-title">Gestion documentaire MINEPAT</div>
+                        <div style="margin-bottom: 15px;">
+                            <span class="project-badge">PHP</span>
+                            <span class="project-badge">MySQL</span>
+                            <span class="project-badge">Admin</span>
+                        </div>
+                        <div class="card-content">
+                            <ul>
+                                <li>Plateforme institutionnelle de gestion</li>
+                                <li>Classification des documents administratifs</li>
+                                <li>Système de gestion des courriers</li>
+                                <li>Conception fonctionnelle et technique</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card reveal">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="Sites web professionnels" class="project-preview">
+                    <div class="project-content">
+                        <div class="project-icon"><i class="fas fa-globe"></i></div>
+                        <div class="project-title">Sites web professionnels</div>
+                        <div style="margin-bottom: 15px;">
+                            <span class="project-badge">HTML/CSS</span>
+                            <span class="project-badge">JavaScript</span>
+                            <span class="project-badge">Bootstrap</span>
+                        </div>
+                        <div class="card-content">
+                            <ul>
+                                <li>Sites vitrines pour Helios</li>
+                                <li>Plateformes e-commerce</li>
+                                <li>Design moderne et responsive</li>
+                                <li>Optimisé pour SEO</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card reveal">
+                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop" alt="IA personnelle" class="project-preview">
+                    <div class="project-content">
+                        <div class="project-icon"><i class="fas fa-robot"></i></div>
+                        <div class="project-title">Intelligence artificielle locale</div>
+                        <div style="margin-bottom: 15px;">
+                            <span class="project-badge">Python</span>
+                            <span class="project-badge">Machine Learning</span>
+                            <span class="project-badge">IA</span>
+                        </div>
+                        <div class="card-content">
+                            <ul>
+                                <li>Développement d'une IA personnelle</li>
+                                <li>Exécution locale sur machine</li>
+                                <li>Automatisation intelligente</li>
+                                <li>Assistance personnalisée</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Languages Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title reveal" data-fr="🌍 Langues" data-en="🌍 Languages">🌍 Langues</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="language-item reveal">
+                        <div class="language-name">
+                            <span class="language-flag">🇫🇷</span>
+                            <span data-fr="Français" data-en="French">Français</span>
+                        </div>
+                        <div class="language-level" data-fr="Expert" data-en="Expert">Expert</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="language-item reveal">
+                        <div class="language-name">
+                            <span class="language-flag">🇬🇧</span>
+                            <span data-fr="Anglais" data-en="English">Anglais</span>
+                        </div>
+                        <div class="language-level" data-fr="Intermédiaire" data-en="Intermediate">Intermédiaire</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="language-item reveal">
+                        <div class="language-name">
+                            <span class="language-flag">🇪🇸</span>
+                            <span data-fr="Espagnol" data-en="Spanish">Espagnol</span>
+                        </div>
+                        <div class="language-level" data-fr="Courant" data-en="Fluent">Courant</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Goals Section -->
+    <section class="section" style="background: rgba(255, 0, 234, 0.02);">
+        <div class="container">
+            <h2 class="section-title reveal" data-fr="🎯 Objectifs professionnels" data-en="🎯 Professional Goals">🎯 Objectifs professionnels</h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="futuristic-card reveal">
+                        <div class="card-icon">🚀</div>
+                        <div class="card-content">
+                            <ul>
+                                <li>Finaliser ma licence d'ingénieur en informatique</li>
+                                <li>Approfondir mes compétences en IA appliquée</li>
+                                <li>Participer à la digitalisation des organisations</li>
+                                <li>Concevoir des plateformes intelligentes à fort impact</li>
+                                <li>Évoluer vers des postes mêlant systèmes, développement et IA</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interests Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title reveal" data-fr="🎲 Centres d'intérêt" data-en="🎲 Interests">🎲 Centres d'intérêt</h2>
+            <div class="skills-grid">
+                <div class="skill-item reveal">
+                    <div class="skill-icon"><i class="fas fa-code"></i></div>
+                    <div class="skill-name" data-fr="Développement web et logiciel" data-en="Web and Software Development">Développement web et logiciel</div>
+                </div>
+                <div class="skill-item reveal">
+                    <div class="skill-icon"><i class="fas fa-brain"></i></div>
+                    <div class="skill-name" data-fr="Intelligence artificielle" data-en="Artificial Intelligence">Intelligence artificielle</div>
+                </div>
+                <div class="skill-item reveal">
+                    <div class="skill-icon"><i class="fas fa-network-wired"></i></div>
+                    <div class="skill-name" data-fr="Réseaux et systèmes" data-en="Networks and Systems">Réseaux et systèmes</div>
+                </div>
+                <div class="skill-item reveal">
+                    <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="skill-name" data-fr="Cybersécurité" data-en="Cybersecurity">Cybersécurité</div>
+                </div>
+                <div class="skill-item reveal">
+                    <div class="skill-icon"><i class="fas fa-lightbulb"></i></div>
+                    <div class="skill-name" data-fr="Innovation technologique" data-en="Technological Innovation">Innovation technologique</div>
+                </div>
+                <div class="skill-item reveal">
+                    <div class="skill-icon"><i class="fas fa-palette"></i></div>
+                    <div class="skill-name" data-fr="Design et UX" data-en="Design and UX">Design et UX</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" style="background: rgba(201, 162, 39, 0.02);">
+        <div class="container">
+            <h2 class="section-title reveal" data-fr="📞 Contact" data-en="📞 Contact">📞 Contact</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="row">
+                        <!-- Contact Info -->
+                        <div class="col-lg-5 mb-4">
+                            <div class="futuristic-card reveal" style="text-align: center; height: 100%;">
+                                <div class="card-icon">💬</div>
+                                <h3 style="color: var(--primary-color); font-family: 'Orbitron', sans-serif; margin-bottom: 30px;" data-fr="Restons en contact" data-en="Let's Stay Connected">
+                                    Restons en contact
+                                </h3>
+                                <div style="text-align: left; margin-bottom: 30px;">
+                                    <div style="margin-bottom: 20px;">
+                                        <i class="fas fa-map-marker-alt" style="color: var(--primary-color); margin-right: 10px;"></i>
+                                        <span data-fr="Yaoundé, Cameroun" data-en="Yaoundé, Cameroon">Yaoundé, Cameroun</span>
+                                    </div>
+                                    <div style="margin-bottom: 20px;">
+                                        <i class="fas fa-envelope" style="color: var(--primary-color); margin-right: 10px;"></i>
+                                        <a href="mailto:gaetanembong681@gmail.com" style="color: var(--text-light); text-decoration: none;">contact@gaetan.com</a>
+                                    </div>
+                                    <div style="margin-bottom: 20px;">
+                                        <i class="fab fa-whatsapp" style="color: var(--primary-color); margin-right: 10px;"></i>
+                                        <a href="https://wa.me/237695732332" style="color: var(--text-light); text-decoration: none;">+237 000 000 000</a>
+                                    </div>
+                                </div>
+                                <div class="contact-icons" style="justify-content: center; flex-wrap: wrap; gap: 15px;">
+                                    <a href="mailto:gaetanembong681@gmail.com" class="contact-icon" title="Email">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                    <a href="https://wa.me/237695732332" class="contact-icon" title="WhatsApp">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </a>
+                                    <a href="https://github.com/gaetan" class="contact-icon" title="GitHub" target="_blank">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="https://linkedin.com/in/gaetan" class="contact-icon" title="LinkedIn" target="_blank">
+                                        <i class="fab fa-linkedin"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Form -->
+                        <div class="col-lg-7 mb-4">
+                            <div class="contact-form reveal">
+                                <h3 style="color: var(--primary-color); font-family: 'Orbitron', sans-serif; margin-bottom: 30px; text-align: center;" data-fr="Envoyez-moi un message" data-en="Send Me a Message">
+                                    Envoyez-moi un message
+                                </h3>
+                                <form id="contactForm" onsubmit="handleContactSubmit(event)">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="name" class="form-label" data-fr="Nom complet" data-en="Full Name">Nom complet</label>
+                                            <input type="text" class="form-control" id="name" required placeholder="Votre nom">
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="email" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="email" required placeholder="votre@email.com">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="subject" class="form-label" data-fr="Sujet" data-en="Subject">Sujet</label>
+                                        <input type="text" class="form-control" id="subject" required placeholder="Sujet du message">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="message" class="form-label">Message</label>
+                                        <textarea class="form-control" id="message" rows="5" required placeholder="Votre message..."></textarea>
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" class="submit-btn" data-fr="Envoyer" data-en="Send">
+                                            <i class="fas fa-paper-plane" style="margin-right: 10px;"></i>
+                                            Envoyer
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="padding: 40px 0; text-align: center; background: rgba(0, 0, 0, 0.5); border-top: 1px solid rgba(0, 240, 255, 0.2);">
+        <div class="container">
+            <p style="color: var(--text-light); margin: 0; font-family: 'Orbitron', sans-serif;">
+                © 2025 Gaetan Embong - Tous droits réservés
+            </p>
+            <p style="color: var(--primary-color); margin-top: 10px; font-size: 0.9rem;">
+                Conçu avec passion et technologie 🚀
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scroll Reveal Script -->
+    <script>
+        // Language Toggle System
+        let currentLang = 'fr';
+        
+        const translations = {
+            // Section Titles
+            'sectionAbout': { fr: '👤 À propos de moi', en: '👤 About Me' },
+            'sectionEducation': { fr: '🎓 Formation', en: '🎓 Education' },
+            'sectionExperience': { fr: '💼 Expériences & Stages', en: '💼 Experience & Internships' },
+            'sectionCertification': { fr: '🎓 Certifications & Séminaires', en: '🎓 Certifications & Seminars' },
+            'sectionSkills': { fr: '🛠️ Compétences techniques', en: '🛠️ Technical Skills' },
+            'sectionProjects': { fr: '📂 Projets réalisés', en: '📂 Completed Projects' },
+            'sectionLanguages': { fr: '🌍 Langues', en: '🌍 Languages' },
+            'sectionGoals': { fr: '🎯 Objectifs professionnels', en: '🎯 Professional Goals' },
+            'sectionInterests': { fr: '🎲 Centres d’intérêt', en: '🎲 Interests' },
+            'sectionContact': { fr: '📞 Contact', en: '📞 Contact' },
+            
+            // Hero Section
+            'subtitle1': { fr: '🎓 Étudiant en ingénierie informatique', en: '🎓 Computer Engineering Student' },
+            'subtitle2': { fr: '💻 Analyste programmeur | Développement web, systèmes & IA', en: '💻 Analyst Programmer | Web Development, Systems & AI' },
+            'subtitle3': { fr: '🚀 Intégration des technologies numériques dans les organisations', en: '🚀 Digital Technology Integration in Organizations' },
+            'heroDesc': { fr: 'Étudiant en dernière année d\'ingénierie informatique, spécialisé en analyse et programmation, avec une expérience concrète en développement web, systèmes informatiques et intégration de l\'intelligence artificielle dans des environnements académiques et administratifs.', en: 'Final year computer engineering student, specialized in analysis and programming, with hands-on experience in web development, computer systems and artificial intelligence integration in academic and administrative environments.' },
+            'exploreBtn': { fr: 'Explorer mon profil', en: 'Explore My Profile' },
+            'location': { fr: 'Yaoundé, Cameroun', en: 'Yaoundé, Cameroon' },
+            
+            // About Section - content will be handled separately
+            // Education Section - content will be handled separately
+            // etc.
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'fr' ? 'en' : 'fr';
+            document.getElementById('main-html').lang = currentLang;
+            document.getElementById('lang-btn-text').textContent = currentLang === 'fr' ? 'English' : 'Français';
+            
+            // Update all elements with data-fr and data-en attributes
+            document.querySelectorAll('[data-fr]').forEach(el => {
+                const tagName = el.tagName.toLowerCase();
+                if (tagName === 'input' || tagName === 'textarea') {
+                    el.placeholder = el.getAttribute('data-' + currentLang);
+                } else if (tagName === 'button' || tagName === 'a') {
+                    // For buttons with icons, preserve the icon
+                    const icon = el.querySelector('i');
+                    if (icon) {
+                        el.innerHTML = '';
+                        el.appendChild(icon.cloneNode(true));
+                        const text = document.createTextNode(' ' + el.getAttribute('data-' + currentLang));
+                        el.appendChild(text);
+                    } else {
+                        el.textContent = el.getAttribute('data-' + currentLang);
+                    }
+                } else {
+                    el.textContent = el.getAttribute('data-' + currentLang);
+                }
+            });
+
+            // Update hero section dynamically
+            updateHeroSection();
+        }
+
+        function updateHeroSection() {
+            const subtitles = document.querySelectorAll('.subtitle');
+            if (subtitles.length >= 2) {
+                subtitles[0].textContent = translations.subtitle1[currentLang];
+                subtitles[1].textContent = translations.subtitle2[currentLang];
+            }
+            
+            const heroDesc = document.querySelector('.hero-description');
+            if (heroDesc) {
+                const parts = heroDesc.innerHTML.split('<br>');
+                parts[0] = translations.subtitle3[currentLang] + '<br>';
+                parts[1] = translations.heroDesc[currentLang];
+                heroDesc.innerHTML = parts.join('');
+            }
+
+            const exploreBtn = document.querySelector('.cta-button');
+            if (exploreBtn) {
+                exploreBtn.textContent = translations.exploreBtn[currentLang];
+            }
+        }
+
+        // Contact Form Handler
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            // Create mailto link
+            const mailtoLink = `mailto:gaetanembong681@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+                `Nom: ${name}
+Email: ${email}
+
+Message:
+${message}`
+            )}`;
+
+            // Open email client
+            window.location.href = mailtoLink;
+
+            // Show success message
+            const successMsg = currentLang === 'fr' 
+                ? 'Merci! Votre client email va s\'ouvrir.' 
+                : 'Thank you! Your email client will open.';
+            
+            alert(successMsg);
+            
+            // Reset form
+            document.getElementById('contactForm').reset();
+        }
+
+        // Scroll Reveal
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+
+        window.addEventListener('scroll', reveal);
+        reveal(); // Initial check
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
